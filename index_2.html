@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>えみちゃんの食べ物キャッチ！</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="screen-start" class="screen active">
+    <div class="start-content">
+      <h1 class="game-title">えみちゃんの<br>食べ物キャッチ！</h1>
+      <div class="start-info">
+        <p>🍩 スイーツを食べると <strong>+10点</strong></p>
+        <p>🥕 野菜を食べると <strong>ライフ -1</strong></p>
+        <p>← → キーで移動</p>
+      </div>
+      <button id="btn-start" class="btn-main">スタート！</button>
+    </div>
+  </div>
+
+  <div id="screen-game" class="screen">
+    <div class="hud">
+      <div class="hud-item">
+        <span class="hud-label">スコア</span>
+        <span class="hud-value" id="score">0</span>
+      </div>
+      <div class="hud-title">えみちゃんの食べ物キャッチ！</div>
+      <div class="hud-item">
+        <span class="hud-label">ライフ</span>
+        <span class="hud-value" id="lives">❤️❤️❤️</span>
+      </div>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="game" width="600" height="500"></canvas>
+    </div>
+  </div>
+
+  <div id="screen-gameover" class="screen">
+    <div class="gameover-content">
+      <h2 class="gameover-title">ゲームオーバー</h2>
+      <p class="final-score">スコア: <span id="final-score">0</span></p>
+      <button id="btn-retry" class="btn-main">もう一度！</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
