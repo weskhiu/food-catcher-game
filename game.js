@@ -11,11 +11,11 @@ const IMG_PUMPKIN = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABgAAAAJqCAYAA
 // ===== 定数 =====
 const CANVAS_W = 600;
 const CANVAS_H = 500;
-const GIRL_W = 90;
-const GIRL_H = 110;
+const GIRL_W = 180;
+const GIRL_H = 180;
 const GIRL_SPEED = 380;
-const ITEM_SIZE = 60;
-const MOUTH_OPEN_DIST = 130;
+const ITEM_SIZE = 110;
+const MOUTH_OPEN_DIST = 200;
 
 // アイテム定義（base64データを使用）
 const ITEM_DEFS_RAW = [
@@ -186,7 +186,7 @@ class FoodCatcherGame {
     for (const pop of this.popEffects) {
       ctx.save();
       ctx.globalAlpha = Math.min(1, pop.life / 0.4);
-      ctx.font = 'bold 20px "Meiryo", sans-serif';
+      ctx.font = 'bold 22px "Kaisei Decol", serif';
       ctx.strokeStyle = '#fff'; ctx.lineWidth = 4; ctx.textAlign = 'center';
       ctx.strokeText(pop.text, pop.x, pop.y);
       ctx.fillStyle = pop.color;
