@@ -81,6 +81,28 @@ class FoodCatcherGame {
       if (e.key === 'ArrowLeft')  this.keys.left  = false;
       if (e.key === 'ArrowRight') this.keys.right = false;
     });
+    const canvas = this.canvas;
+    canvas.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const rect = canvas.getBoundingClientRect();
+      const x = touch.clientX - rect.left;
+      if (x < rect.width / 2) this.keys.left = true;
+      else this.keys.right = true;
+    }, { passive: false });
+    canvas.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      this.keys.left = false;
+      this.keys.right = false;
+    }, { passive: false });
+    canvas.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const rect = canvas.getBoundingClientRect();
+      const x = touch.clientX - rect.left;
+      this.keys.left  = x < rect.width / 2;
+      this.keys.right = x >= rect.width / 2;
+    }, { passive: false });
   }
 
   spawnItem() {
