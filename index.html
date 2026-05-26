@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>えみちゃんの食べ物キャッチ！</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,8 @@
       <div class="start-info">
         <p>🍩 スイーツを食べると <strong>+10点</strong></p>
         <p>🥕 野菜を食べると <strong>ライフ -1</strong></p>
-        <p>← → キーで移動</p>
+        <p class="pc-hint">⌨️ ← → キーで移動</p>
+        <p class="sp-hint">👆 画面の左右をタッチして移動</p>
       </div>
       <button id="btn-start" class="btn-main">スタート！</button>
     </div>
@@ -37,6 +38,7 @@
     <div class="canvas-wrap">
       <canvas id="game" width="600" height="500"></canvas>
     </div>
+    <div class="touch-hint">👈 左タップ　　右タップ 👉</div>
   </div>
 
   <div id="screen-gameover" class="screen">
