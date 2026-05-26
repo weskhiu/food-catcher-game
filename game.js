@@ -14,7 +14,7 @@ const CANVAS_H = 500;
 const GIRL_W = 180;
 const GIRL_H = 180;
 const GIRL_SPEED = 380;
-const ITEM_SIZE = 110;
+const ITEM_SIZE = 150;
 const MOUTH_OPEN_DIST = 200;
 
 // アイテム定義（base64データを使用）
