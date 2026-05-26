@@ -144,7 +144,7 @@ class FoodCatcherGame {
 
     this.mouthOpen = this.nearestItemDist() < MOUTH_OPEN_DIST;
 
-    const gr = { x: this.girl.x + GIRL_W*0.35, y: this.girl.y + GIRL_H*0.7, w: GIRL_W*0.3, h: GIRL_H*0.2 };
+    const gr = { x: this.girl.x + GIRL_W*0.4, y: this.girl.y + GIRL_H*0.78, w: GIRL_W*0.2, h: GIRL_H*0.12 };
     for (let i = this.items.length-1; i >= 0; i--) {
       const it = this.items[i];
       it.y += it.vy * dt;
@@ -241,15 +241,20 @@ let game;
 async function init() {
   game = new FoodCatcherGame();
   await game.loadAssets();
-  ['click','touchend'].forEach(ev => {
-    document.getElementById('btn-start').addEventListener(ev, (e) => {
-      e.preventDefault();
-      showScreen('game'); game.start();
-    });
-    document.getElementById('btn-retry').addEventListener(ev, (e) => {
-      e.preventDefault();
-      showScreen('game'); game.start();
-    });
-  });
+
+  function startGame(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    showScreen('game');
+    game.start();
+  }
+
+  const btnStart = document.getElementById('btn-start');
+  const btnRetry = document.getElementById('btn-retry');
+
+  btnStart.addEventListener('click', startGame);
+  btnStart.addEventListener('touchstart', startGame, { passive: false });
+  btnRetry.addEventListener('click', startGame);
+  btnRetry.addEventListener('touchstart', startGame, { passive: false });
 }
 init();
