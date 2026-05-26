@@ -144,7 +144,7 @@ class FoodCatcherGame {
 
     this.mouthOpen = this.nearestItemDist() < MOUTH_OPEN_DIST;
 
-    const gr = { x: this.girl.x + GIRL_W*0.25, y: this.girl.y + GIRL_H*0.55, w: GIRL_W*0.5, h: GIRL_H*0.3 };
+    const gr = { x: this.girl.x + GIRL_W*0.35, y: this.girl.y + GIRL_H*0.7, w: GIRL_W*0.3, h: GIRL_H*0.2 };
     for (let i = this.items.length-1; i >= 0; i--) {
       const it = this.items[i];
       it.y += it.vy * dt;
@@ -241,11 +241,15 @@ let game;
 async function init() {
   game = new FoodCatcherGame();
   await game.loadAssets();
-  document.getElementById('btn-start').addEventListener('click', () => {
-    showScreen('game'); game.start();
-  });
-  document.getElementById('btn-retry').addEventListener('click', () => {
-    showScreen('game'); game.start();
+  ['click','touchend'].forEach(ev => {
+    document.getElementById('btn-start').addEventListener(ev, (e) => {
+      e.preventDefault();
+      showScreen('game'); game.start();
+    });
+    document.getElementById('btn-retry').addEventListener(ev, (e) => {
+      e.preventDefault();
+      showScreen('game'); game.start();
+    });
   });
 }
 init();
